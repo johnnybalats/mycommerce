@@ -44,9 +44,9 @@ public class Cart implements ICart {
         PrintWriter pw = new PrintWriter(file);
 
         for (Product product: products) {
-            pw.println(product.getName() + ", " +
-                       product.getPrice() + ", " +
-                       product.getQuantity() + ", " +
+            pw.println(product.getName() + "," +
+                       product.getPrice() + "," +
+                       product.getQuantity() + "," +
                        product.getCategory());
         }
 
@@ -63,14 +63,15 @@ public class Cart implements ICart {
         while(sc.hasNext()) {
             String line = sc.nextLine();
 
-            String words[] = line.split(", ");
+            String words[] = line.split(",");
+
             String productName = words[0];
             double productPrice = Double.parseDouble(words[1]);
             int productQuantity = Integer.parseInt(words[2]);
 
             Supplier supplier = new Supplier();
 
-            Product product = new Product(productName, productPrice, productQuantity, Category.SNACKS, new Supplier());
+            Product product = new Product(productName, productPrice, productQuantity, Category.SNACKS, supplier);
 
             products.add(product);
         }

@@ -58,7 +58,7 @@ public class Ui {
 
         Supplier supplier = new Supplier();
 
-        Product product = new Product(productName, productPrice, productQuantity, Category.SNACKS, new Supplier());
+        Product product = new Product(productName, productPrice, productQuantity, Category.SNACKS, supplier);
 
         return product;
     }
